@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.threebytes.callservicesamplefb" >
+    
+	<permission
+        android:name="${applicationId}.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
+
+    <application
+        android:name="android.support.multidex.MultiDexApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".IncomingCallActivity"
+            android:screenOrientation="portrait"
+            android:excludeFromRecents="true" />
+
+        <activity
+            android:name=".OutgoingCallActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="ACTION_STRING_FINISH" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".UserHome"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:excludeFromRecents="true" >
+        </activity>
+
+        <activity
+            android:name=".PickFriendsActivity"
+            android:label="Pick Friends"
+            android:screenOrientation="portrait"
+            android:excludeFromRecents="true" >
+        </activity>
+        <activity
+            android:name=".FbLoginActivity"
+            android:label="Login"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- [START CallService] -->
+        <receiver
+            android:name=".CallEventsBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.threebytes.wrtc.intent.CALL_EVENTS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".CallEventsIntentService"
+            android:exported="false" />
+        <!-- [END CallService] -->
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+    </application>
+
+</manifest>

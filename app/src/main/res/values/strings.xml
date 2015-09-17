@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Video Chat</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="legals">©2015 3bytes Inc <a href="https://callservice-backend.appspot.com/">license</a></string>
+    <string name="exception">Exception: %1$s</string>
+    <string name="need_perms_alert_text">In order to pick your friends you need to accept all the permissions on the following page.</string>
+    <string name="need_perms_alert_button_ok">OK</string>
+    <string name="need_perms_alert_button_quit">Quit</string>
+    <string name="app_id">1634495466838788</string>
+</resources>
